@@ -1,0 +1,63 @@
+<div class="container m-auto mt-5 col-md-4 bg-light p-3 border rounded" >
+    <h1 class="text-center" >Sign up</h1>
+<form [formGroup]="myForm" (ngSubmit)="signup()" >
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Name
+            </mat-label>
+            <input matInput placeholder="Name" type="text" formControlName="name" />
+        </mat-form-field>
+    </p>
+    <div *ngIf="myForm.get('name')?.errors && myForm.get('name')?.dirty" >
+        <h3 *ngIf="myForm.get('name')?.hasError('required')" >Field required</h3>
+    </div>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>
+              Surname
+            </mat-label>
+            <input matInput placeholder="Surname" type="text" formControlName="surname" />
+        </mat-form-field>
+    </p>
+    <div *ngIf="myForm.get('surname')?.errors && myForm.get('surname')?.dirty" >
+        <h3 *ngIf="myForm.get('surname')?.hasError('required')" >Field required</h3>
+    </div>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Phone Number
+            </mat-label>
+            <input matInput placeholder="Phone Number" type="number" formControlName="phoneNumber" />
+        </mat-form-field>
+    </p>
+    <div *ngIf="myForm.get('phoneNumber')?.errors && myForm.get('phoneNumber')?.dirty" >
+        <h3 *ngIf="myForm.get('phoneNumber')?.hasError('required')" >Field required</h3>
+    </div>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Email
+            </mat-label>
+            <input matInput placeholder="Email" type="email" formControlName="email" />
+        </mat-form-field>
+    </p>
+    <div *ngIf="myForm.get('email')?.errors && myForm.get('email')?.dirty" >
+        <h3 *ngIf="myForm.get('email')?.hasError('required')" >Field required</h3>
+    </div>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Password
+            </mat-label>
+            <input matInput placeholder="password" type="password" formControlName="password" />
+        </mat-form-field>
+    </p>
+    <div *ngIf="myForm.get('password')?.errors && myForm.get('password')?.dirty" >
+        <h3 *ngIf="myForm.get('password')?.hasError('required')" >Field required</h3>
+        <h3 *ngIf="myForm.get('password')?.hasError('minlength')" >Field requires at least 6 characters</h3>
+        <h3 *ngIf="myForm.get('password')?.hasError('maxlength')" >Field requires less than 10 characters</h3>
+    </div>
+    <button class="button" mat-raised-button color="primary" [disabled]="myForm.invalid" type="submit" >Sign up</button>
+</form>
+</div>

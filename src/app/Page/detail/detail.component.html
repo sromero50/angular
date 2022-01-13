@@ -1,0 +1,20 @@
+<div class="col-md-8 border rounded border-light p-3 mt-5 m-auto bg-light">
+    <mat-grid-list cols="2" rowHeight="1:1" *ngIf="product">
+        <mat-grid-tile colspan="1">
+            <img alt="..." src={{product.pictures[0].url}} class="picture" />
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <div>
+                <h1>{{product.title}}</h1>
+                <h4>{{product.description}}</h4>
+                <span class="my-3">{{product.id}}</span>
+                <h2>$ {{product.price | currency:'ARS '}}</h2>
+                <div>
+                    <button class="button" mat-raised-button color="primary">
+                        Buy
+                    </button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

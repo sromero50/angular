@@ -1,0 +1,30 @@
+<div class="container mt-5 m-auto col-md-4 bg-light p-3 border rounded">
+    <form [formGroup]="myFormLogin" (ngSubmit)="login()">
+        <h1 class="text-center">Login</h1>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Email
+                </mat-label>
+                <input matInput placeholder="Email" type="email" formControlName="email" />
+            </mat-form-field>
+        </p>
+        <div *ngIf="myFormLogin.get('email')?.errors && myFormLogin.get('email')?.dirty">
+            <h3 *ngIf="myFormLogin.get('email')?.hasError('required')">Field required</h3>
+        </div>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Password
+                </mat-label>
+                <input matInput placeholder="password" type="password" formControlName="password" />
+            </mat-form-field>
+        </p>
+        <div *ngIf="myFormLogin.get('password')?.errors && myFormLogin.get('password')?.dirty">
+            <h3 *ngIf="myFormLogin.get('password')?.hasError('required')">Field required</h3>
+            <h3 *ngIf="myFormLogin.get('password')?.hasError('minlength')">Field requires at least 6 characters</h3>
+            <h3 *ngIf="myFormLogin.get('password')?.hasError('maxlength')">Field requires less than 10 characters</h3>
+        </div>
+        <button class="button" mat-raised-button color="primary" [disabled]="myFormLogin.invalid" type="submit">Login</button>
+    </form>
+</div>

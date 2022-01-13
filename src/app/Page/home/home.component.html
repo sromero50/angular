@@ -1,0 +1,14 @@
+<div> 
+  <mat-grid-list cols="1" rowHeight="600px">
+    <mat-grid-tile>
+        <mat-card  *ngFor="let product of products" style="width: 15rem;">
+            <img mat-card-image src={{product.thumbnail}} class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <mat-card-title>{{product.title}}</mat-card-title>
+                <mat-card-subtitle>{{product.price | currency:'ARS '}}</mat-card-subtitle>
+            </div>
+            <mat-card-actions><button class="button" mat-raised-button color="primary" routerLink="/product/{{product.id}}">Detail</button></mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>  
+</div>
